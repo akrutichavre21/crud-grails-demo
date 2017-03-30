@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-<g:form controller="login" action="create" method="post">
+<g:form controller="abc" action="create" method="post">
 Email :
 <input type="text" name="email" required>
 <br>

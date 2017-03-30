@@ -1,19 +1,21 @@
 package hello
+import grails.plugin.springsecurity.annotation.Secured
 
-class LoginController {
+class AbcController {
 
+    @Secured(['ROLE_ADMIN'])
     def index() { }
-
+    @Secured(['ROLE_ADMIN'])
     def create(){
         Profile a = new Profile([dEmail:params.email, dPassord:params.password])
         a.save();
-        redirect(controller:'login',action:'show')          //redirects to show action.
+        redirect(controller:'abc',action:'show')          //redirects to show action.
     }
-
+    @Secured(['ROLE_ADMIN'])
     def read(){
 
     }
-
+    @Secured(['ROLE_ADMIN'])
     def update(){
 
         def updateInstance = Profile.get(1)
@@ -22,7 +24,7 @@ class LoginController {
         render "Successfully Updated. New Email is : ${updateInstance.dEmail}"
 
     }
-
+    @Secured(['ROLE_ADMIN'])
     def delete(){
 
         def deleteInstance = Profile.get(3)
@@ -30,6 +32,7 @@ class LoginController {
         render "Successfully User has been Deleted."
 
     }
+    @Secured(['ROLE_ADMIN'])
     def show(){
         //reading from table.
         def viewInstance = Profile.get(1)                   //viewInstance is of type Profile.
